@@ -1,0 +1,16 @@
+overwrite: true
+schema: "src/schema.graphql"
+documents: null
+generates:
+  src/generated/graphql.ts:
+    config:
+      maybeValue: T | undefined
+      contextType: "../context#GraphQLContext"
+      mappers:
+        Link: .prisma/client#Link as LinkModel
+        Vote: .prisma/client#Vote as VoteModel
+        User: .prisma/client#User as UserModel
+
+    plugins:
+      - "typescript"
+      - "typescript-resolvers"
